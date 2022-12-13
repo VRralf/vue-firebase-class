@@ -1,5 +1,6 @@
 <script setup>
-import { loginWithGoogle, logout, user } from '../firebase/auth.js'
+import { loginWithGoogle, logout } from '../firebase/auth.js'
+import user from '../store/User.js'
 import router from '../router/index.js'
 import { computed } from 'vue'
 

@@ -1,19 +1,60 @@
 <script setup>
-import { ref, computed } from 'vue'
-import { addComment, comments, deleteComment } from '../firebase/comments.js';
-import { user } from '../firebase/auth.js'
+import { onMounted } from 'vue'
+import user from '../store/User.js'
+import PostItem from '../components/PostItem.vue';
+import { posts } from '../store/PostStore.js'
+import NewPost from '../components/NewPost.vue';
+import { getPosts } from '../firebase/posts.js';
+import { getComments } from '../firebase/comments.js';
 
-const name = ref('')
-const email = ref('')
-const message = ref('')
+onMounted(() => {
+  getPosts()
+  getComments()
+})
 
-const updateData = computed(() => {
+
+/* const updateData = computed(() => {
   if(user.value){
     console.log(user);
     name.value = user.value.displayName
     email.value = user.value.email
   }
-})
+}) */
+
+/* const posts = ref([
+  {
+    id: 1,
+    name: 'Eduardo',
+    photo: null,
+    title: 'titulo1',
+    body: 'En diseño gráfico, también se llama así a los textos sin sentido (como Lorem ipsum) que se ponen para ver cómo queda un texto cuyo contenido de momento no interesa.',
+    date: Date.now(),
+  },
+  {
+    id: 2,
+    name: 'Marcos',
+    photo: null,
+    title: 'titulo2',
+    body: 'En diseño gráfico, también se llama así a los textos sin sentido (como Lorem ipsum) que se ponen para ver cómo queda un texto cuyo contenido de momento no interesa.',
+    date: Date.now(),
+  },
+  {
+    id: 3,
+    name: 'Eduardo',
+    photo: null,
+    title: 'titulo3',
+    body: 'En diseño gráfico, también se llama así a los textos sin sentido (como Lorem ipsum) que se ponen para ver cómo queda un texto cuyo contenido de momento no interesa.',
+    date: Date.now(),
+  },
+  {
+    id: 4,
+    name: 'Eduardo',
+    photo: null,
+    title: 'titulo4',
+    body: 'En diseño gráfico, también se llama así a los textos sin sentido (como Lorem ipsum) que se ponen para ver cómo queda un texto cuyo contenido de momento no interesa.',
+    date: Date.now(),
+  },
+]) */
 
 /* const comments = ref([
   {
@@ -34,15 +75,16 @@ const updateData = computed(() => {
   comments.value = await getComments()
 }) */
 
-const addNewComment = () => {
+/* const addNewComment = () => {
   addComment({
     id: crypto.randomUUID(),
+    date: Date.now(),
     name: name.value,
     email: email.value,
     body: message.value
   })
   message.value = ''
-}
+} */
 
 /* const addComment = () => {
   let comment = {
@@ -61,24 +103,20 @@ const addNewComment = () => {
 
 <template>
   <main>
-    <h1>Home</h1>
-    {{ updateData }}
-    <form v-if="user">
-      <input v-model="name" type="text" placeholder="Name" />
-      <input v-model="email" type="email" placeholder="Email" />
-      <textarea v-model="message" placeholder="Comment" @keyup.enter="addNewComment"></textarea>
-      <button @click.prevent="addNewComment">Submit</button>
-    </form>
-    <h2>Comments</h2>
+    <h1 v-if="user">New Post</h1>
+    <NewPost v-if="user" />
+    <!-- {{ updateData }} -->
+    <h2>Posts</h2>
     <div class="cardContainer">
-      <div class="card" v-for="comment in comments" :key="comment.id">
+      <PostItem v-for="post in posts" :post="post" :key="post.id" />
+      <!-- <div class="card" v-for="comment in comments" :key="comment.id">
         <h3>Author: {{ comment.name }}</h3>
         <div class="cardContent">
           <p>{{ comment.body }}</p>
         </div>
         <p class="muted">Mail: {{ comment.email }}</p>
         <button @click="deleteComment(comment.id)">Delete</button>
-      </div>
+      </div> -->
     </div>
   </main>
 </template>

@@ -1,34 +1,31 @@
-import { db } from './index.js';
-import { collection, addDoc, getDocs, query, where, orderBy, limit, doc, deleteDoc, updateDoc, onSnapshot } from 'firebase/firestore';
-import { ref } from 'vue';
+import { app } from './index.js';
+import { collection, addDoc, doc, deleteDoc, onSnapshot, getFirestore } from 'firebase/firestore';
+import { comments } from '../store/PostStore.js'
 
-const commentsRef = collection(db, 'comments');
-const comments = ref([]);
+const db = getFirestore(app)
+const commentRef = collection(db, 'comments')
 
 const addComment = (comment) => {
-    addDoc(commentsRef, comment);
-};
+    addDoc(commentRef, comment)
+}
 
-const deleteComment = (id) => {
-    deleteDoc(doc(commentsRef, id));
-};
+const getComments = () => {
+    onSnapshot(commentRef, (snapshot) => {
+        comments.value = []
+        snapshot.forEach(commentData => {
+            let newComment = {
+                id: commentData.id,
+                postId: commentData.data().postId,
+                date: commentData.data().date,
+                name: commentData.data().name,
+                email: commentData.data().email,
+                text: commentData.data().text,
+                photo: commentData.data().photo,
+            }
+            comments.value.push(newComment)
+        })
+        comments.value.sort((a,b) => b.date - a.date)
+    })
+}
 
-
-onSnapshot(commentsRef, (snapshot) => {
-    comments.value = []
-    snapshot.forEach((doc) => {
-        console.log('doc', doc.data());
-        const comment = {
-            id: doc.id,
-            body: doc.data().body,
-            email: doc.data().email,
-            name: doc.data().name,
-        };
-        console.log('comment', comment);
-        comments.value.push(comment);
-    });
-    return comments;
-});
-
-
-export { addComment, comments, deleteComment };
+export { addComment, getComments }
