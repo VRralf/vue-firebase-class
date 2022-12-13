@@ -78,4 +78,6 @@ const comments = ref([
     },
 ])
 
+const feedbacks = ref([])
+
 export { posts, comments }
