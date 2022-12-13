@@ -20,8 +20,14 @@ const getComments = () => {
                 email: commentData.data().email,
                 text: commentData.data().text,
                 photo: commentData.data().photo,
+                color: commentData.data().color,
+                color2: commentData.data().color2,
+                calificacion: commentData.data().calificacion,
+                soy: commentData.data().soy,
+                
+
             }
-            comments.value.push(newComment)
+            feedbacks.value.push(newComment)
         })
     })
 }
