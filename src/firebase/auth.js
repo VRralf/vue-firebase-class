@@ -19,6 +19,8 @@ const loginWithGoogle = () => {
             photoURL: result.user.photoURL,
             email: result.user.email,
         }
+
+        localStorage.setItem('user',JSON.stringify(newUser))
         user.value = {
             ...newUser
         }
@@ -34,6 +36,7 @@ const logout = () => {
     .then(() => {
         console.log('logged out');
         user.value = null;
+        localStorage.setItem('user',null)
     }
     )
     .catch((error) => {

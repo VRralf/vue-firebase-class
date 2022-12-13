@@ -79,7 +79,7 @@ const calificar = (nota)=>{
 <style scoped>
 .editor {
     width: 600px;
-    height: 400px;
+    height: max-content;
     background-color: pink;
     margin: 0 auto;
     display: flex;
@@ -89,6 +89,7 @@ const calificar = (nota)=>{
     padding: 10px;
     border-radius: 25px;
     box-shadow: 5px 5px 5px palevioletred;
+    margin-bottom: 1rem;
 }
 
 .editor h1 {
@@ -180,8 +181,7 @@ button {
 
 @media screen and (max-width: 600px) {
     .editor {
-        width: 90%;
-        min-height: 400px;
+        width: 300px;
     }
 }
 </style>

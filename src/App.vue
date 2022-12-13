@@ -1,6 +1,18 @@
 <script setup>
+import { onMounted } from 'vue';
 import { RouterView } from 'vue-router'
 import Header from './components/Header.vue'
+import user from './store/User.js';
+
+onMounted(()=>{
+  let localUser = JSON.parse(localStorage.getItem('user'))
+  if(localUser){
+    user.value = {
+      ...localUser
+    }
+  }
+})
+
 
 </script>
 
