@@ -85,7 +85,9 @@ label, label::after, label::before{
   z-index: 11;
   height: 2px;
   width: 30px;
-  border: 2px solid pink;
+  border: 2px solid white;
+  background-color: white;
+  border-radius: 3px;
   display: block;
   position: relative;
   transition: all 0.5s;
@@ -108,14 +110,16 @@ label::before{
 }
 
 #checkbox:checked ~ label::after{
-  transform: rotate(45deg);
+  transform: rotate(225deg);
   border-color: palevioletred;
+  background-color: palevioletred;
   top: -2px;
 }
 
 #checkbox:checked ~ label::before{
-  transform: rotate(-45deg);
+  transform: rotate(-225deg);
   border-color: palevioletred;
+  background-color: palevioletred;
   top: -2px;
 }
 #checkbox:checked ~ label{
@@ -140,7 +144,7 @@ label::before{
 h1 {
   position: absolute;
   left: 40px;
-  color: pink;
+  color: white;
   cursor: pointer;
   flex-grow: 1;
   text-align: start;

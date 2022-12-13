@@ -10,7 +10,7 @@ const emits = defineEmits(['hideMenu'])
             <li v-if="user"><h1>{{user.displayName}}</h1></li>
             <li v-if="user">{{user.email}}</li>
             <li><RouterLink @click="emits('hideMenu')" active-class="active" to="/">Posts</RouterLink></li>
-            <li><RouterLink @click="emits('hideMenu')" active-class="active" to="/misPosts">Mis post</RouterLink></li>
+            <li><RouterLink @click="emits('hideMenu')" active-class="active" to="/myposts">Mis post</RouterLink></li>
             <li><RouterLink @click="emits('hideMenu')" active-class="active" to="/valoraciones">Valoraciones</RouterLink></li>
             <li><RouterLink @click="emits('hideMenu')" active-class="active" to="/login">Login</RouterLink></li>
         </ul>

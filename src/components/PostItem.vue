@@ -43,6 +43,10 @@ onMounted(() => {
 })
 
 
+const favorito = ref(false)
+const toggleFavorite = () => {
+    favorito.value = !favorito.value
+}
 </script>
 
 <template>
@@ -50,6 +54,10 @@ onMounted(() => {
         <div class="cardHeader">
             <img :src="post.photo ? post.photo : 'https://picsum.photos/200'" alt="">
             <h3>{{ post.name }}</h3>
+            <span class="contador">0</span>
+            <span @click="toggleFavorite" :class="favorito? 'material-symbols-outlined favorite added' : 'material-symbols-outlined favorite'">
+                favorite
+            </span>
         </div>
         <div class="cardContent">
             <p>{{ post.body }}</p>
@@ -67,6 +75,25 @@ button {
     border-radius: 4px;
     background-color: #ccc;
     cursor: pointer;
+}
+
+.favorite{
+    cursor: pointer;
+    transition: all 1s;
+    color: pink;
+}
+
+.contador{
+    margin-left: auto;
+}
+
+.added{
+    color: red;
+    font-variation-settings: 'FILL' 1;
+}
+
+.favorite:active{
+    transform: scale(2);
 }
 
 .card {
@@ -132,6 +159,7 @@ h3 {
     bottom: 0;
     right: 0;
     margin-right: 0.6rem;
+    opacity: 0.5;
 }
 
 @media screen and (max-width: 600px) {
