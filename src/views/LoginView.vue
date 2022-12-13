@@ -8,10 +8,6 @@ const login = () => {
   loginWithGoogle()
 }
 
-const goToHome = () => {
-  router.push('/')
-}
-
 // computed function
 
 const changeUser = computed(() => {
@@ -34,21 +30,6 @@ const changeUser = computed(() => {
         <h2>{{ user.displayName }}</h2>
         <p>{{ user.email }}</p>
       </div>
-      <!-- form login with email and password -->
-      <!-- <form v-if="!user">
-        <h3>Login</h3>
-        <input type="email" placeholder="Email" />
-        <input type="password" placeholder="Password" />
-        <button>Login</button>
-      </form> -->
-      <!-- form register with email, name and password -->
-      <!-- <form v-if="!user">
-        <h3>Register</h3>
-        <input type="text" placeholder="Name" />
-        <input type="email" placeholder="Email" />
-        <input type="password" placeholder="Password" />
-        <button>Register</button>
-      </form> -->
     </div>
     <!-- Login with google button -->
     <div>

@@ -11,54 +11,51 @@ const props = defineProps({
     <div class="card">
         <div class="cardHeader">
             <h3>{{ comment.name }}</h3>
-            <img :src="comment.photo? comment.photo : 'https://picsum.photos/200'" alt="">
+            <img :src="comment.photo" alt="foto perfil">
         </div>
         <div class="cardContent">
-            <p>{{ comment.text }}</p>
+            <p>📨 {{ comment.text }}</p>
         </div>
     </div>
 </template>
 
 <style scoped>
-button {
-    padding: 0.5rem;
-    border: none;
-    border-radius: 4px;
-    background-color: #ccc;
-    cursor: pointer;
-}
 
 .card {
     position: relative;
-    background: #f4f4f4;
-    background-color: pink;
-    width: 100%;
-    border-radius: 5px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-    margin-top: 0.5rem;
+    width: 90%;
 }
 
 .cardHeader{
+    position: relative;
     display: flex;
     justify-content: space-between;
-    height: 2rem;
+    align-items: flex-end;
     align-items: center;
-    gap: 0.3rem;
-    padding: 10px;
+    height: 1.5rem;
+    padding: 0.5rem;
+    background-color: rgba(255, 192, 203, 0.346);
+    border-radius: 5px 10px 10px 0;
+}
+
+h3{
+    font-weight: bold;
+    font-size: 0.8rem;
 }
 
 .cardHeader img{
-    height: 300%;
-    border-radius: 1rem 1rem 0 0;
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 100%;
+    border-radius: 0 10px 0 0;
+    z-index: 1;
 }
 
 .cardContent {
-    display: flex;
-    flex-direction: column;
-    background-color: white;
-
-    border-radius: 0 0 5px 5px;
-    padding: 5px;
+    border: 1px solid pink;
+    border-radius: 0 0 10px 10px;
+    padding: 0.5rem;
 }
 
 </style>

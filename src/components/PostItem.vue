@@ -19,7 +19,6 @@ const props = defineProps({
             <h3>{{ post.name }}</h3>
         </div>
         <div class="cardContent">
-            <h4>{{ post.title }}</h4>
             <p>{{ post.body }}</p>
         </div>
         <CommentContainer :postId="post.id" />
@@ -39,42 +38,41 @@ button {
 .card {
     display: flex;
     flex-direction: column;
+    background-color: white;
     position: relative;
     padding: 1rem;
-    margin-bottom: 1rem;
-    width: 15rem;
-    min-height: 5rem;
-    min-width: 290px;
-    border-radius: 1rem 1rem 0 0;
+    width: 500px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
 }
 
 .cardHeader{
     display: flex;
+    width: 100%;
     height: 3rem;
     align-items: center;
     gap: 1rem;
+    border-bottom: 2px solid palevioletred;
+    border-radius: 50px 0 0 50px;
+}
+
+h3{
+    font-weight: bold;
 }
 
 .cardHeader img{
     height: 100%;
     border-radius: 50%;
+    border: 2px solid palevioletred;
 }
 
 .cardContent {
     display: flex;
+    box-shadow: 2px 2px pink;
+    border-radius: 10px;
+    margin: 5px 0;
     flex-direction: column;
-    margin: 1rem 0;
     background-color: white;
     padding: 1rem;
-    border-radius: 5px;
-}
-
-.cardContent h4{
-    font-weight: bolder;
-    text-transform: capitalize;
-    text-align: end;
-    font-size: 1.5rem;
 }
 
 .card button {
@@ -94,4 +92,11 @@ button {
     color: red;
     font-size: 0.7rem;
 }
+
+@media screen and (max-width: 600px){
+    .card{
+        width: 95%;
+    }
+}
+
 </style>

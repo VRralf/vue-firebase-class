@@ -18,5 +18,18 @@ const updateComments = computed(()=>{
 
 <template>
     {{ updateComments }}
-    <CommentItem v-for="comment in commentsWithId" :comment="comment" :key="comment.id" />
+    <div v-if="commentsWithId.length" class="commentContainer">
+        <CommentItem v-for="comment in commentsWithId" :comment="comment" :key="comment.id" />
+    </div>
 </template>
+
+<style scoped>
+.commentContainer{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 10px;
+    padding: 10px;
+    border-radius: 10px;
+}
+</style>

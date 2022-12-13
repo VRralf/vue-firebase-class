@@ -9,11 +9,6 @@ import { user } from '../firebase/auth.js'
           <RouterLink to="/">
             <h1>Posting!!!</h1>
           </RouterLink>
-          <!-- <nav>
-            <RouterLink to="/">Posting</RouterLink>
-            <RouterLink to="/login">Login</RouterLink>
-          </nav> -->
-          <!-- UserPhoto -->
           <RouterLink to="/login">
             <div class="userPhoto">
               <img :src="user? user.photoURL : 'https://picsum.photos/200'" alt="user photo" />
@@ -28,12 +23,14 @@ import { user } from '../firebase/auth.js'
 
 header{
   background-color: palevioletred;
+  position: sticky;
+  top: 0;
+  z-index: 10;
 }
 .wrapper {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1rem;
 }
 
 h1{
