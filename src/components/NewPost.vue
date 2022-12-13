@@ -37,7 +37,7 @@ const addNewPost = () => {
     <form>
         <input readonly v-model="name" type="text" placeholder="Name" />
         <input readonly v-model="email" type="email" placeholder="Email" />
-        <textarea v-model="message" placeholder="Comment" @keyup.enter="addNewPost"></textarea>
+        <textarea required v-model="message" placeholder="Comment" @keyup.enter="addNewPost"></textarea>
         <button @click.prevent="addNewPost">Submit</button>
     </form>
 </template>

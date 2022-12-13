@@ -10,49 +10,6 @@ const props = defineProps({
     typeof: Object
 })
 
-/* const comments = ref([
-    {
-        id: 1,
-        postId: 1,
-        photo: null,
-        name: 'Ivan',
-        body:'Comentario random 1',
-        date: Date.now(),
-    },
-    {
-        id: 1,
-        postId: 1,
-        photo: null,
-        name: 'Ivan',
-        body:'Comentario random 2',
-        date: Date.now(),
-    },
-    {
-        id: 1,
-        postId: 1,
-        photo: null,
-        name: 'Ivan',
-        body:'Comentario random 3',
-        date: Date.now(),
-    },
-    {
-        id: 1,
-        postId: 2,
-        photo: null,
-        name: 'Eduardo',
-        body:'Comentario random 4',
-        date: Date.now(),
-    },
-    {
-        id: 1,
-        postId: 2,
-        photo: null,
-        name: 'Eduardo',
-        body:'Comentario random 5',
-        date: Date.now(),
-    },
-]) */
-
 </script>
 
 <template>
@@ -65,10 +22,8 @@ const props = defineProps({
             <h4>{{ post.title }}</h4>
             <p>{{ post.body }}</p>
         </div>
-        <NewComment v-if="user" :postId="post.id" />
         <CommentContainer :postId="post.id" />
-<!--         <h1>POST</h1> -->
-        <!-- <button @click="deleteComment(post.id)">Delete</button> -->
+        <NewComment v-if="user" :postId="post.id" />
     </div>
 </template>
 
@@ -82,13 +37,15 @@ button {
 }
 
 .card {
+    display: flex;
+    flex-direction: column;
     position: relative;
     padding: 1rem;
     margin-bottom: 1rem;
     width: 15rem;
     min-height: 5rem;
     min-width: 290px;
-    border-radius: 5px;
+    border-radius: 1rem 1rem 0 0;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
 }
 

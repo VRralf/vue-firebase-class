@@ -10,8 +10,8 @@ const props = defineProps({
 <template>
     <div class="card">
         <div class="cardHeader">
-            <img :src="comment.photo? comment.photo : 'https://picsum.photos/200'" alt="">
             <h3>{{ comment.name }}</h3>
+            <img :src="comment.photo? comment.photo : 'https://picsum.photos/200'" alt="">
         </div>
         <div class="cardContent">
             <p>{{ comment.text }}</p>
@@ -32,9 +32,6 @@ button {
     position: relative;
     background: #f4f4f4;
     background-color: pink;
-    padding: 1rem;
-    margin-bottom: 1rem;
-    width: 15rem;
     width: 100%;
     border-radius: 5px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
@@ -43,22 +40,25 @@ button {
 
 .cardHeader{
     display: flex;
+    justify-content: space-between;
     height: 2rem;
     align-items: center;
-    gap: 1rem;
+    gap: 0.3rem;
+    padding: 10px;
 }
 
 .cardHeader img{
-    height: 100%;
-    border-radius: 50%;
+    height: 300%;
+    border-radius: 1rem 1rem 0 0;
 }
 
 .cardContent {
     display: flex;
     flex-direction: column;
     background-color: white;
-    padding: 1rem;
-    border-radius: 5px;
+
+    border-radius: 0 0 5px 5px;
+    padding: 5px;
 }
 
 </style>

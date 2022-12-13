@@ -105,29 +105,23 @@ onMounted(() => {
   <main>
     <h1 v-if="user">New Post</h1>
     <NewPost v-if="user" />
-    <!-- {{ updateData }} -->
     <h2>Posts</h2>
     <div class="cardContainer">
       <PostItem v-for="post in posts" :post="post" :key="post.id" />
-      <!-- <div class="card" v-for="comment in comments" :key="comment.id">
-        <h3>Author: {{ comment.name }}</h3>
-        <div class="cardContent">
-          <p>{{ comment.body }}</p>
-        </div>
-        <p class="muted">Mail: {{ comment.email }}</p>
-        <button @click="deleteComment(comment.id)">Delete</button>
-      </div> -->
     </div>
   </main>
 </template>
 
 <style scoped>
 
+main{
+  width: 100%;
+}
+
 form{
   display: flex;
   flex-direction: column;
   max-width: 290px;
-  margin: 0 auto;
   gap: 0.5rem;
 }
 
@@ -150,16 +144,16 @@ button{
 }
 
 .cardContainer{
+  margin: 0 auto;
   display: flex;
-  flex-wrap: wrap;
+  flex-direction: column;
+  align-items: center;
   gap: 1rem;
-  justify-content: center;
 }
 .card {
   position: relative;
   background: #f4f4f4;
   padding: 1rem;
-  margin-bottom: 1rem;
   width: 15rem;
   min-height: 5rem;
   min-width: 290px;

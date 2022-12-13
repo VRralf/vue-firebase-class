@@ -23,10 +23,9 @@ const changeUser = computed(() => {
 </script>
 
 <template>
-  <div>
+  <div class="login">
     {{ changeUser }}
-    <h1>This is an login page</h1>
-    <button @click="goToHome">Go to home</button>
+    <h1>This is a login page</h1>
     <div class="formsContainer">
 
       <!-- user card from firebase -->
@@ -36,20 +35,20 @@ const changeUser = computed(() => {
         <p>{{ user.email }}</p>
       </div>
       <!-- form login with email and password -->
-      <form v-if="!user">
+      <!-- <form v-if="!user">
         <h3>Login</h3>
         <input type="email" placeholder="Email" />
         <input type="password" placeholder="Password" />
         <button>Login</button>
-      </form>
+      </form> -->
       <!-- form register with email, name and password -->
-      <form v-if="!user">
+      <!-- <form v-if="!user">
         <h3>Register</h3>
         <input type="text" placeholder="Name" />
         <input type="email" placeholder="Email" />
         <input type="password" placeholder="Password" />
         <button>Register</button>
-      </form>
+      </form> -->
     </div>
     <!-- Login with google button -->
     <div>
@@ -62,6 +61,13 @@ const changeUser = computed(() => {
 
 <style scoped>
 
+.login{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
 .formsContainer{
   display: flex;
   flex-wrap: wrap;

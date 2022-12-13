@@ -30,7 +30,7 @@ const addNewComment = () => {
 
 <template>
     <form @submit.prevent="addNewComment">
-        <input v-model="texto" type="text" :placeholder="'comentar como '+user.displayName.split(' ')[0]">
+        <input required v-model="texto" type="text" :placeholder="'comentar como '+user.displayName.split(' ')[0]">
         <button>Enviar</button>
     </form>
 </template>
