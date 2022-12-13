@@ -1,6 +1,12 @@
 <script setup>
 import { user } from '../firebase/auth.js'
 import SideMenu from './SideMenu.vue';
+import { ref } from 'vue';
+
+const menu = ref(false)
+const hideMenu = ()=>{
+  menu.value = false
+}
 
 </script>
 
@@ -8,14 +14,15 @@ import SideMenu from './SideMenu.vue';
   <header>
     <div class="wrapper">
       <div class="hamburguesa">
-        <input type="checkbox" id="checkbox">
+        <input type="checkbox" id="checkbox" v-model="menu">
         <label for="checkbox"></label>
         <div class="menu">
-          <SideMenu />
+          <SideMenu @hide-menu="hideMenu" />
         </div>
+        <div id="hidden" @click="hideMenu"></div>
         <h1>Posting!!!</h1>
       </div>
-      <RouterLink to="/login">
+      <RouterLink @click="hideMenu" to="/login">
         <div class="userPhoto">
           <img :src="user ? user.photoURL : 'https://picsum.photos/200'" alt="user photo" />
         </div>
@@ -59,6 +66,18 @@ input{
   top: -22px;
   left: -322px;
   background-color: white;
+  transition: all 0.5s;
+  z-index: 5;
+}
+
+#hidden{
+  position: absolute;
+  height: 0px;
+  width: 0px;
+  top: -22px;
+  left: -105vw;
+  background-color: rgba(0, 0, 0, 0.109);
+  z-index: 1;
   transition: all 0.5s;
 }
 
@@ -109,6 +128,12 @@ label::before{
 
 #checkbox:checked ~ h1{
   color: palevioletred;
+}
+
+#checkbox:checked ~ #hidden{
+  left: 0px;
+  width: 100vw;
+  height: 100vh;
 }
 
 

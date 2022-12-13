@@ -1,5 +1,7 @@
 <script setup>
 import user from '../store/User.js'
+
+const emits = defineEmits(['hideMenu'])
 </script>
 
 <template>
@@ -7,10 +9,10 @@ import user from '../store/User.js'
         <ul>
             <li v-if="user"><h1>{{user.displayName}}</h1></li>
             <li v-if="user">{{user.email}}</li>
-            <li><RouterLink active-class="active" to="/">Posts</RouterLink></li>
-            <li><RouterLink active-class="active" to="/misPosts">Mis post</RouterLink></li>
-            <li><RouterLink active-class="active" to="/valoraciones">Valoraciones</RouterLink></li>
-            <li><RouterLink active-class="active" to="/login">Login</RouterLink></li>
+            <li><RouterLink @click="emits('hideMenu')" active-class="active" to="/">Posts</RouterLink></li>
+            <li><RouterLink @click="emits('hideMenu')" active-class="active" to="/misPosts">Mis post</RouterLink></li>
+            <li><RouterLink @click="emits('hideMenu')" active-class="active" to="/valoraciones">Valoraciones</RouterLink></li>
+            <li><RouterLink @click="emits('hideMenu')" active-class="active" to="/login">Login</RouterLink></li>
         </ul>
     </div>
 </template>
@@ -49,10 +51,16 @@ li a{
     font-weight: bold;
     color: white;
     border-radius: 10px;
+    transition: all 0.5s;
+}
+
+li a:hover{
+    background-color: pink;
+    transform: scale(1.05);
 }
 
 .active{
-    animation: brillar 2s infinite linear;
+    animation: brillar 2s infinite ease-in-out;
 }
 
 @keyframes brillar{
@@ -61,6 +69,7 @@ li a{
     }
     50%{
         background-color: palevioletred;
+        transform: scale(1.05);
     }
     100%{
         background-color: pink;
