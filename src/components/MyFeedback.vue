@@ -45,9 +45,9 @@ const calificar = (nota)=>{
                 <h1 :style="'color:' + color2 + ';'">{{ user.displayName }}</h1>
                 <div class="soy">
                     <h3>Soy en una palabra!</h3>
-                    <input v-model="soy" type="text">
+                    <input maxlength="20" v-model="soy" type="text">
                 </div>
-                <textarea placeholder="Dejanos tu hermoso comentario" required maxlength="180" v-model="texto" name="" id="" cols="30" rows="10"></textarea>
+                <textarea placeholder="Dejanos tu hermoso comentario" required maxlength="100" v-model="texto" name="" id="" cols="30" rows="10"></textarea>
                 <div class="stars">
                     <p>Como calificas el curso: </p>
                     <span @click="calificar(1)" :class=" calificacion>0? 'material-symbols-outlined shine' : 'material-symbols-outlined'">
@@ -182,6 +182,34 @@ button {
 @media screen and (max-width: 600px) {
     .editor {
         width: 300px;
+        flex-direction: column;
+    }
+
+    .editor img{
+        width: 100%;
+        border-radius: 25px 25px 0 0;
+    }
+
+    .contenido{
+        width: 100%;
+    }
+
+    .contenido h1{
+        font-size: 1.2rem;
+        text-align: center;
+    }
+
+    .soy{
+        flex-direction: column;
+    }
+
+    .stars{
+        flex-wrap: wrap;
+    }
+
+    .stars p{
+        width: 100%;
+        text-align: center;
     }
 }
 </style>

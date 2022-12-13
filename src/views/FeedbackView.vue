@@ -28,7 +28,7 @@ const isMyPosted = computed(()=>{
 <template>
     {{isMyPosted}}
     <h1>Gracias a todos!</h1>
-    <h2 v-if="feedbacks.length == 0">No hay valoraciones para mostrar...</h2>>
+    <h2 v-if="feedbacks.length == 0">No hay valoraciones para mostrar...</h2>
     <MyFeedback v-if="user && !posted" />
     <div class="feedContainer">
         <FeedbackItem v-for="feedback in feedbacks" :feedback="feedback" />        
@@ -40,6 +40,7 @@ const isMyPosted = computed(()=>{
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 1rem;
+    gap: 2rem;
+    padding: 1rem;
 }
 </style>
