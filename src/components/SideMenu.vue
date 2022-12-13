@@ -7,8 +7,9 @@ const emits = defineEmits(['hideMenu'])
 <template>
     <div class="menu1">
         <ul>
+            <li v-if="user"><img :src="user.photoURL" alt=""></li>
             <li v-if="user"><h1>{{user.displayName}}</h1></li>
-            <li v-if="user">{{user.email}}</li>
+            <li v-if="user"><h2>{{user.email}}</h2></li>
             <li><RouterLink @click="emits('hideMenu')" active-class="active" to="/">Posts</RouterLink></li>
             <li><RouterLink @click="emits('hideMenu')" active-class="active" to="/myposts">Mis post</RouterLink></li>
             <li><RouterLink @click="emits('hideMenu')" active-class="active" to="/valoraciones">Valoraciones</RouterLink></li>
@@ -24,6 +25,20 @@ const emits = defineEmits(['hideMenu'])
     width: 100%;
     display: flex;
     justify-content: center;
+}
+
+li img{
+    width: 100%;
+    border-radius: 50%;
+}
+
+li h1, li h2{
+    color: palevioletred;
+}
+
+li h2{
+    font-size: 1rem;
+    margin-bottom: 1rem;
 }
 
 ul{
