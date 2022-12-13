@@ -37,7 +37,7 @@ const addNewPost = () => {
     <form>
         <div class="header">
             <img :src="user.photoURL" alt="foto de perfil">
-            <textarea required v-model="message" placeholder="¿Que estas pensando?"
+            <textarea maxlength="280" required v-model="message" placeholder="¿Que estas pensando?"
                 @keyup.enter="addNewPost"></textarea>
         </div>
         <!-- <input readonly v-model="name" type="text" placeholder="Name" />

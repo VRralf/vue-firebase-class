@@ -1,5 +1,4 @@
 <script setup>
-import { ref, onMounted } from 'vue'
 import { user } from '../firebase/auth.js'
 
 </script>
@@ -7,25 +6,39 @@ import { user } from '../firebase/auth.js'
 <template>
     <header>
         <div class="wrapper">
-          <nav>
-            <RouterLink to="/">Home</RouterLink>
+          <RouterLink to="/">
+            <h1>Posting!!!</h1>
+          </RouterLink>
+          <!-- <nav>
+            <RouterLink to="/">Posting</RouterLink>
             <RouterLink to="/login">Login</RouterLink>
-          </nav>
+          </nav> -->
           <!-- UserPhoto -->
-          <div class="userPhoto">
-            <img :src="user? user.photoURL : 'https://picsum.photos/200'" alt="user photo" />
-          </div>
+          <RouterLink to="/login">
+            <div class="userPhoto">
+              <img :src="user? user.photoURL : 'https://picsum.photos/200'" alt="user photo" />
+            </div>
+          </RouterLink>
         </div>
     </header>
 </template>
 
 
 <style scoped>
+
+header{
+  background-color: palevioletred;
+}
 .wrapper {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 1rem;
+}
+
+h1{
+  color: white;
+  cursor: pointer;
 }
 
 .userPhoto {
@@ -39,6 +52,10 @@ import { user } from '../firebase/auth.js'
   width: 100%;
   height: 100%;
   object-fit: cover;
+}
+
+a{
+  text-decoration: none;
 }
 
 </style>
