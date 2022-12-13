@@ -81,6 +81,7 @@ const changeUser = computed(() => {
   flex-direction: column;
   align-items: center;
   gap: 1rem;
+  background-color: white;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
   padding: 1rem;
   border-radius: 5px;

@@ -40,8 +40,6 @@ const addNewPost = () => {
             <textarea maxlength="280" required v-model="message" placeholder="¿Que estas pensando?"
                 @keyup.enter="addNewPost"></textarea>
         </div>
-        <!-- <input readonly v-model="name" type="text" placeholder="Name" />
-        <input readonly v-model="email" type="email" placeholder="Email" /> -->
         <button @click.prevent="addNewPost">Postear</button>
     </form>
 </template>
@@ -50,8 +48,9 @@ const addNewPost = () => {
 form {
     display: flex;
     flex-direction: column;
-    max-width: 290px;
-    margin: 0 auto;
+    max-width: 500px;
+    background-color: white;
+    margin: 10px auto;
     gap: 0.5rem;
     padding: 0.5rem;
     border-radius: 10px;
@@ -99,5 +98,11 @@ button {
 
 button:hover {
     background-color: palevioletred;
+}
+
+@media screen and (max-width: 600px){
+    form{
+        width: 95%;
+    }
 }
 </style>

@@ -16,7 +16,6 @@ onMounted(() => {
 
 <template>
   <main>
-    <h1 v-if="user">New Post</h1>
     <NewPost v-if="user" />
     <div class="cardContainer">
       <PostItem v-for="post in posts" :post="post" :key="post.id" />
