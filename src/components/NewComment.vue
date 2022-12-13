@@ -37,6 +37,7 @@ const addNewComment = () => {
 
 <style scoped>
     form{
+        margin-top: 10px;
         display: flex;
         width: 100%;
         height: 2rem;
@@ -44,13 +45,22 @@ const addNewComment = () => {
 
     form input{
         flex-grow: 1;
-        border-radius: 10px 0 0 10px;
-        border-right: 1px solid black;
+        border: none;
+        border-bottom: 1px solid black;
     }
 
     form button{
-        border-radius: 0 10px 10px 0;
-        border-left: 1px solid black;
+        background-color: pink;
+        color: white;
+        border: none;
+        margin-left: 5px;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: 0.5s all;
+    }
+
+    form button:hover{
+        background-color: palevioletred;
     }
 
 </style>
